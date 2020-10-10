@@ -1,8 +1,8 @@
+
+#Erica Chou Comp Networking
 from socket import *
-
-
 def smtp_client(port=1025, mailserver='127.0.0.1'):
-    msg = "\r\n Hello good friendos"
+    #msg = "\r\n Hello good friendos"
     endmsg = "\r\n.\r\n"
 
     # Choose a mail server (e.g. Google mail server) if you want to verify the script beyond GradeScope
@@ -30,7 +30,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send MAIL FROM command and print server response.
     # Fill in start
-    mailFrom = "MAIL FROM: ericacookiechou@gmail.com \r\n"
+    mailFrom = "MAIL FROM: emc689@nyu.edu\r\n"
     clientSocket.send(mailFrom.encode())
     recv2 = clientSocket.recv(1024).decode()
     #print(recv2)
@@ -40,7 +40,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send RCPT TO command and print server response.
     # Fill in start
-    rcptTo = "MAIL TO: emc689@nyu.edu \r\n"
+    rcptTo = "RCPT TO: ericacookiechou@gmail.com\r\n"
     clientSocket.send(rcptTo.encode())
     recv3 = clientSocket.recv(1024).decode()
     #print(recv3)
@@ -60,7 +60,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
     # Send message data.
     # Fill in start
-    #msg = input('Enter Your Message Here:')
+    msg = input('Enter Your Message Here:')
     clientSocket.send(msg.encode())
     # Fill in end
 
@@ -87,4 +87,4 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
 
 if __name__ == '__main__':
     smtp_client(1025, '127.0.0.1')
-    #smtp_client(465, 'smtp.gmail.com')
+    #smtp_client(25, 'smtp.nyu.edu')
